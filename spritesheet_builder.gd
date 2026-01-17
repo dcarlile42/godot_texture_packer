@@ -46,6 +46,10 @@ func _ready() -> void:
 		#"texture_region" : texture_region
 	#}
 
+	# note that you get back Image instances, not Texture instances. I end up putting the
+	# atlases into a Texture2DArray for my custom tilemap shaders, but you can do
+	# normal textures or a TileSetAtlasSource or whatever
+
 	for image : Image in atlases.images:
 		image.save_png("user://%s.png" % image.resource_name)
 
@@ -53,8 +57,8 @@ func _ready() -> void:
 
 
 	if (sprite_name != ""):
-		test_sprite.texture = ImageTexture.create_from_image(atlases.images[0])
 		var sprite_asset = atlases.sprites[sprite_name]
+		test_sprite.texture = ImageTexture.create_from_image(sprite_asset.atlas)
 		test_sprite.region_rect = sprite_asset.region
 
 
