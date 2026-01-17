@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bohas6jt7iktj"]
+
+[ext_resource type="Script" uid="uid://urd2luj2hqi1" path="res://spritesheet_builder.gd" id="1_ig7tw"]
+
+[node name="SpritesheetBuilder" type="Node2D" node_paths=PackedStringArray("test_sprite")]
+script = ExtResource("1_ig7tw")
+sprite_name = "butterfly"
+test_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(200, 200)
+region_enabled = true
